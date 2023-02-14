@@ -18,9 +18,9 @@ const requireJsonContent = () => {
 
 app.use(logDateTime);
 
-app.get('/' ,middle, (req,res,next)=>{
+/*app.get('/' ,middle, (req,res,next)=>{
     res.send (`Hello :)  ${req.dateTime}`);
-});
+});*/
 
 
 app.listen(port ,()=>console.log(`server is running on port:${port}`));

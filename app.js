@@ -29,7 +29,12 @@ app.use('/os/opus/:id', osRouter);
 app.use('/products', products);
 app.use('/products/:id', products);
 
+const mongoose =require('mongoose');
 
+const dbconfig = require('./database/mongodb.json');
+
+
+const contactRouter = require('./routes/contact.js');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,5 +51,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
+
+app.use('/contact',contactRouter);
 
 module.exports = app;
